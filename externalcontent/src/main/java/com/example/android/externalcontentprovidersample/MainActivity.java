@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
         Toast.makeText(this, cursor.getCount()+"", Toast.LENGTH_SHORT).show();
+        for (int i =0 ; i<cursor.getCount();i++){
+            if (cursor.moveToPosition(i)) {
+                Toast.makeText(this, cursor.getString(
+                        cursor.getColumnIndexOrThrow("name")), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
